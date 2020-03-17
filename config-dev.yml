@@ -1,0 +1,24 @@
+server:
+  port: ${port:9091}
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springboot
+    username: root
+  application:
+    name: user-service
+mybatis:
+  type-aliases-package: com.shengy.user.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka,http://localhost:10088/eureka
+    #拉取服务地址列表间隔时间，默认30秒
+    registry-fetch-interval-seconds: 10
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
